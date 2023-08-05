@@ -1,24 +1,46 @@
+import 'package:ashernaser/screen/home/singleProductView.dart';
 import 'package:flutter/material.dart';
 
-Widget singleGridView(BuildContext context) {
+Widget singleGridView(
+  BuildContext context,
+  String title,
+  String desc,
+  double price,
+) {
   return Padding(
     padding: const EdgeInsets.only(left: 15.0),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(
-          height: 150,
-          width: 150,
-          child: Image.asset('asset/image/test.jpg'),
+        GestureDetector(
+          onTap: () => Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (_) => Product(
+                title: title,
+                desc: desc,
+                price: price,
+              ),
+            ),
+          ),
+          child: SizedBox(
+            height: 150,
+            width: 150,
+            child: Hero(
+              tag: title,
+              child: Image.asset(
+                'asset/image/test.jpg',
+              ),
+            ),
+          ),
         ),
         Text(
-          'Beef Burger',
+          title,
           style: TextStyle(
               fontWeight: FontWeight.w600,
               color: Theme.of(context).primaryColor),
         ),
         Text(
-          'Onions with cheese',
+          desc,
           style: TextStyle(color: Theme.of(context).primaryColor),
         ),
         Padding(
@@ -27,7 +49,7 @@ Widget singleGridView(BuildContext context) {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'N1,200',
+                price.toString(),
                 style: TextStyle(
                     fontWeight: FontWeight.w600,
                     color: Theme.of(context).primaryColor),
@@ -43,29 +65,3 @@ Widget singleGridView(BuildContext context) {
     ),
   );
 }
-// GridTile(
-//     footer: Column(
-//       // crossAxisAlignment: CrossAxisAlignment.start,
-//       children: [
-//         Text(
-//           'Beef Burger',
-//           style: TextStyle(
-//               fontWeight: FontWeight.w600,
-//               color: Colors.white), //Theme.of(context).primaryColor),
-//         ),
-//         Text('Onion with Cheese'),
-//         const SizedBox(height: 5),
-//         Row(
-//           mainAxisAlignment: MainAxisAlignment.spaceAround,
-//           children: [
-//             Text('N 1200'),
-//             IconButton.filled(
-//               onPressed: () {},
-//               icon: const Icon(Icons.add),
-//             ),
-//           ],
-//         )
-//       ],
-//     ),
-//     child: Image.asset('asset/image/test.jpg'),
-//   );

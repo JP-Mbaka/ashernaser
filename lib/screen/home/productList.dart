@@ -1,9 +1,12 @@
 import 'package:ashernaser/screen/home/productview.dart';
-import 'package:ashernaser/widget/showBottomNavigation.dart';
+import 'package:ashernaser/widget/drawer.dart';
 import 'package:flutter/material.dart';
 
 class Products extends StatelessWidget {
-  // Widget showModal() {}
+  Widget showModal() {
+    return DrawerButton();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,8 +25,18 @@ class Products extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+                // DrawerButton(
+                //   key: UniqueKey(),
+                //   onPressed: () {
+                  //   Navigator.push(context,
+                  //       MaterialPageRoute(builder: (_) => GenDrawer()));
+                //   },
+                // ),
                 IconButton.filled(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (_) => GenDrawer()));
+                  },
                   icon: const Icon(
                     Icons.menu_outlined,
                   ),
@@ -94,9 +107,11 @@ class Products extends StatelessWidget {
             ],
           ),
           SizedBox(height: 460, child: productView(context)),
-          BottomNav(context)
+          // BottomNav(context)
         ],
       ),
+      // drawer: GenDrawer(),
+      //Would be deleted
       bottomNavigationBar: BottomNavigationBar(items: [
         BottomNavigationBarItem(
           icon: Icon(Icons.dashboard),

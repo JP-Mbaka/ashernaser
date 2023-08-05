@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-Widget BottomNav(){
-  // return modal
+Widget BottomNav() {
+  return Center();
 }
 
 // Future<dynamic> BottomNav(BuildContext context) {
