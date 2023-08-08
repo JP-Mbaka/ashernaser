@@ -1,4 +1,3 @@
-import 'package:ashernaser/model/productModel.dart';
 import 'package:ashernaser/screen/Cart/order.dart';
 import 'package:flutter/material.dart';
 
@@ -14,6 +13,8 @@ class Product extends StatefulWidget {
 }
 
 class _ProductState extends State<Product> {
+  var clckM = false;
+  var clckD = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,25 +43,22 @@ class _ProductState extends State<Product> {
               ),
             ],
           ),
-          const SizedBox(height: 5),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.59 -
-                MediaQuery.of(context).viewInsets.bottom - MediaQuery.of(context).padding.bottom,
+          Container(
+            // color: Colors.blue,
+            height: MediaQuery.of(context).size.height * 0.598, //-
+            // MediaQuery.of(context).viewInsets.bottom -
+            // MediaQuery.of(context).padding.bottom,
             child: ListView(
+              padding: const EdgeInsets.only(top: 0),
               shrinkWrap: true,
               children: [
                 Container(
-                  color: Colors.blue,
-                  // margin: const EdgeInsets.only(
-                  //   top: 500,
-                  //   left: 60,
-                  // ),
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   alignment: Alignment.center,
                   height: 150,
                   width: MediaQuery.of(context).size.width * 0.9,
                   child: Card(
-                    elevation: 2,
+                    elevation: 1,
                     child: Column(
                       // crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -125,93 +123,154 @@ class _ProductState extends State<Product> {
                     ),
                   ),
                 ),
-                Container(
-                  margin: const EdgeInsets.all(4.0),
-                  height: 400,
-                  width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(
-                      color: Color.fromARGB(134, 245, 245, 245),
-                      borderRadius: BorderRadius.circular(15)),
-                  child: Stack(
-                    children: [
-                      Positioned(
-                        top: 40,
-                        left: -4,
-                        child: Container(
-                          width: MediaQuery.of(context).size.width * 0.945,
-                          // margin: EdgeInsets.only(left: 10),
-                          padding: EdgeInsets.only(top: 15),
-                          child: Card(
-                            child: Padding(
-                              padding: const EdgeInsets.only(
-                                left: 15.0,
-                                right: 15.0,
-                                bottom: 15.0,
-                                top: 30,
-                              ),
-                              child: Center(
-                                child: Text(
-                                  'Lorem ipsum wkaku qajhyh lkiewr wqkuerwqk awku4ta ikuwa4r iu4rj aiu4t paie5t aouk5ya aow4iuy oai45yt angt4 so5i aoi45t a<ou4t54jh awo4j a<ku45 ai2u5hg qa23u5qthqka ',
-                                  textAlign: TextAlign.justify,
-                                  style: TextStyle(
-                                      color: Theme.of(context).primaryColor),
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Container(
+                    // padding: const EdgeInsets.symmetric(horizontal: 10),
+                    height: MediaQuery.of(context).size.height * 0.4,
+                    width: MediaQuery.of(context).size.width * 0.9,
+                    decoration: const BoxDecoration(
+                      color: Color.fromARGB(255, 255, 240, 240),
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(15),
+                        topRight: Radius.circular(15),
+                        bottomLeft: Radius.circular(10),
+                        bottomRight: Radius.circular(10),
+                      ),
+                    ),
+                    child: Stack(
+                      children: [
+                        Positioned(
+                          top: 40,
+                          left: -4,
+                          child: Container(
+                            width: MediaQuery.of(context).size.width * 0.97,
+                            height: MediaQuery.of(context).size.height * 0.35,
+                            // color:,
+                            padding: const EdgeInsets.only(top: 15),
+                            child: Card(
+                              color: Theme.of(context).primaryColor,
+                              child: const Padding(
+                                padding: EdgeInsets.only(
+                                  left: 15.0,
+                                  right: 15.0,
+                                  bottom: 15.0,
+                                  top: 30,
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    'Lorem ipsum wkaku qajhyh lkiewr wqkuerwqk awku4ta ikuwa4r iu4rj aiu4t paie5t aouk5ya aow4iuy oai45yt angt4 so5i aoi45t a<ou4t54jh awo4j a<ku45 ai2u5hg qa23u5qthqka ',
+                                    textAlign: TextAlign.justify,
+                                    style: TextStyle(color: Colors.white),
+                                  ),
                                 ),
                               ),
                             ),
                           ),
                         ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(top: 5),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Container(
-                              height: 80,
-                              width: 80,
-                              decoration: BoxDecoration(
-                                color: Color.fromARGB(50, 15, 7, 7),
-                                borderRadius: BorderRadius.circular(50),
-                              ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    'Details',
-                                    style: TextStyle(
-                                        fontSize: 18,
-                                        // fontWeight: FontWeight.w600,
-                                        color: Theme.of(context).primaryColor),
+                        Padding(
+                          padding: EdgeInsets.only(top: 5),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              if (clckD == true)
+                                Container(
+                                  height: 80,
+                                  width: 80,
+                                  decoration: BoxDecoration(
+                                    color: const Color.fromARGB(
+                                        255, 255, 240, 240),
+                                    borderRadius: BorderRadius.circular(50),
                                   ),
-                                  const SizedBox(height: 10),
-                                  Container(
-                                    width: 5,
-                                    height: 5,
-                                    decoration: BoxDecoration(
-                                      color: Theme.of(context).primaryColor,
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                            Text(
-                              'Measurement',
-                              style: TextStyle(
-                                  fontSize: 18,
-                                  // fontWeight: FontWeight.w600,
-                                  color: Theme.of(context).primaryColor),
-                            ),
-                          ],
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        'Details',
+                                        style: TextStyle(
+                                            fontSize: 15,
+                                            // fontWeight: FontWeight.w600,
+                                            color:
+                                                Theme.of(context).primaryColor),
+                                      ),
+                                      const SizedBox(height: 10),
+                                      Container(
+                                        width: 5,
+                                        height: 5,
+                                        decoration: BoxDecoration(
+                                          color: Theme.of(context).primaryColor,
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              if (clckD == false)
+                                Text(
+                                  'Details',
+                                  style: TextStyle(
+                                      fontSize: 15,
+                                      // fontWeight: FontWeight.w600,
+                                      color: Theme.of(context).primaryColor),
+                                ),
+                              if (clckM == true)
+                                Container(
+                                  height: 90,
+                                  width: 90,
+                                  decoration: BoxDecoration(
+                                    color: const Color.fromARGB(
+                                        255, 255, 240, 240),
+                                    borderRadius: BorderRadius.circular(50),
+                                  ),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        'Measurement',
+                                        style: TextStyle(
+                                            fontSize: 12,
+                                            // fontWeight: FontWeight.w600,
+                                            color:
+                                                Theme.of(context).primaryColor),
+                                      ),
+                                      const SizedBox(height: 10),
+                                      Container(
+                                        width: 5,
+                                        height: 5,
+                                        decoration: BoxDecoration(
+                                          color: Theme.of(context).primaryColor,
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              if (clckM == false)
+                                Text(
+                                  'Measurement',
+                                  style: TextStyle(
+                                      fontSize: 15,
+                                      // fontWeight: FontWeight.w600,
+                                      color: Theme.of(context).primaryColor),
+                                ),
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Text('N17.00'),
+                    Text(
+                      'N17.00',
+                      style: TextStyle(
+                          color: Theme.of(context).primaryColor,
+                          fontWeight: FontWeight.bold),
+                    ),
                     ElevatedButton.icon(
                       onPressed: () => Navigator.of(context).push(
                         MaterialPageRoute(
