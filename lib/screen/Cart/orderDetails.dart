@@ -19,7 +19,7 @@ class OrderDetails extends StatelessWidget {
               ),
               const Center(
                 child: Text(
-                  'Checkout',
+                  'Order Details',
                   style: TextStyle(color: Colors.white),
                 ),
               ),

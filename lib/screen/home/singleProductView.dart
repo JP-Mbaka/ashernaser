@@ -262,26 +262,39 @@ class _ProductState extends State<Product> {
                     ),
                   ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Text(
-                      'N17.00',
-                      style: TextStyle(
-                          color: Theme.of(context).primaryColor,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    ElevatedButton.icon(
-                      onPressed: () => Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (_) => Order(),
-                        ),
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Card(
+                    elevation: 1,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Text(
+                            'N17.00',
+                            style: TextStyle(
+                                color: Theme.of(context).primaryColor,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          ElevatedButton.icon(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Theme.of(context).primaryColor,
+                              foregroundColor: Theme.of(context).secondaryHeaderColor
+                            ),
+                            onPressed: () => Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (_) => Order(),
+                              ),
+                            ),
+                            icon: Icon(Icons.shopping_bag),
+                            label: Text('Add to Cart'),
+                          ),
+                        ],
                       ),
-                      icon: Icon(Icons.shopping_bag),
-                      label: Text('Add to Cart'),
                     ),
-                  ],
-                )
+                  ),
+                ),
               ],
             ),
           ),
